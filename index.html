@@ -26,6 +26,7 @@ h2 span{font-size:15px;color:var(--accent);font-weight:700}
 .btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .copy{grid-column:1/-1;font:inherit;font-weight:700;font-size:20px;min-height:56px;border:0;border-radius:12px;background:var(--accent);color:var(--accfg);cursor:pointer}
 .copy.done{opacity:.85}
+.go.armed{background:#1F4E8C;color:#fff;border-color:#1F4E8C;font-weight:700}
 .txt.pick{background:#CFE0F7;color:#1B2433;border-radius:6px}
 .txt{-webkit-user-select:text;user-select:text}
 .go{display:flex;align-items:center;justify-content:center;min-height:48px;border:1px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none;font-size:16px;text-align:center;padding:4px}
@@ -163,15 +164,24 @@ function copyFlow(id,btn){
   return s1;
 }
 document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){copyFlow(b.dataset.t,b)})});
-document.querySelectorAll('.go').forEach(function(a){a.addEventListener('click',function(e){
+document.querySelectorAll('.go').forEach(function(a){a.dataset.label=a.textContent;a.addEventListener('click',function(e){
   var id=a.dataset.t;var app=a.dataset.app;
-  if(IOS&&app==='gemini'){
-    e.preventDefault();
-    copyFlow(id,null);
-    setTimeout(function(){toast('복사했습니다. 홈 화면에서 Gemini 앱을 직접 열어 붙여넣기 하세요.')},400);
+  if(app==='chatgpt'){copyFlow(id,null);return;}
+  if(IOS){
+    if(app==='gemini'){
+      e.preventDefault();copyFlow(id,null);
+      setTimeout(function(){toast('복사했습니다. 홈 화면에서 Gemini 앱을 직접 열어 붙여넣기 하세요.')},400);
+      return;
+    }
+    if(a.dataset.armed!=='1'){
+      e.preventDefault();copyFlow(id,null);
+      a.dataset.armed='1';a.textContent='한 번 더 누르면 열림';a.classList.add('armed');
+      setTimeout(function(){a.dataset.armed='';a.textContent=a.dataset.label;a.classList.remove('armed')},8000);
+      return;
+    }
+    a.dataset.armed='';a.textContent=a.dataset.label;a.classList.remove('armed');
     return;
   }
-  if(app==='chatgpt'){copyFlow(id,null);return;}
   var ok=syncCopy(document.getElementById(id).textContent);
   if(!ok){e.preventDefault();copyFlow(id,null);setTimeout(function(){location.href=a.href},1500);}
 })});
