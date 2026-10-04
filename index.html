@@ -32,7 +32,7 @@ h2 span{font-size:15px;color:var(--accent);font-weight:700}
 .txt{-webkit-user-select:text;user-select:text}
 .go{display:flex;align-items:center;justify-content:center;min-height:48px;border:1px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none;font-size:16px;text-align:center;padding:4px}
 button:focus-visible,a:focus-visible{outline:3px solid #4A7BD0;outline-offset:2px}
-.jump{position:sticky;top:0;z-index:5;display:grid;grid-template-columns:repeat(5,1fr);gap:6px;background:var(--bg);padding:10px 0 10px;margin:0 0 14px}
+.jump{position:static;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--bg);padding:10px 0 10px;margin:0 0 14px}
 .jump a{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:15px;font-weight:700;text-align:center;line-height:1.2;padding:2px}
 section{scroll-margin-top:84px}
 .pick{background:var(--card);border:2px solid var(--accent);border-radius:14px;padding:16px;margin:4px 0 8px}
@@ -42,10 +42,12 @@ section{scroll-margin-top:84px}
 .cur{margin:6px 0 0;color:var(--sub);font-size:16px}
 .cur button{font:inherit;font-size:16px;border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px}
 body:not([data-co]) section{display:none}
+body:not([data-co])[data-tab="s6"] #s6{display:block}
+.help .txt{color:var(--ink)}
 body[data-co="mfg"] .item[data-co="svc"],body[data-co="svc"] .item[data-co="mfg"]{display:none}
 body[data-co] .pick{display:none}
 body[data-co] section{display:none}
-body[data-co][data-tab="s1"] #s1,body[data-co][data-tab="s2"] #s2,body[data-co][data-tab="s3"] #s3,body[data-co][data-tab="s4"] #s4,body[data-co][data-tab="s5"] #s5{display:block}
+body[data-co][data-tab="s1"] #s1,body[data-co][data-tab="s2"] #s2,body[data-co][data-tab="s3"] #s3,body[data-co][data-tab="s4"] #s4,body[data-co][data-tab="s5"] #s5,body[data-tab="s6"] #s6{display:block}
 .jump a{-webkit-tap-highlight-color:transparent}
 .jump a[aria-current="true"]{background:var(--accent);color:var(--accfg)!important;border-color:var(--accent)}
 .foot{margin-top:28px;color:var(--sub);font-size:17px}
@@ -55,7 +57,7 @@ body[data-co][data-tab="s1"] #s1,body[data-co][data-tab="s2"] #s2,body[data-co][
 <body>
 <main>
 <h1>경영진 AI 워크숍 실습 페이지</h1>
-<nav class="jump" aria-label="실습 바로가기"><a href="#s1">실습 1</a><a href="#s2">실습 2</a><a href="#s3">실습 3</a><a href="#s4">선택 실습</a><a href="#s5">실습 4</a></nav>
+<nav class="jump" aria-label="실습 바로가기"><a href="#s1">실습 1</a><a href="#s2">실습 2</a><a href="#s3">실습 3</a><a href="#s4">선택 실습</a><a href="#s5">실습 4</a><a href="#s6">막힐 때</a></nav>
 <p class="how">쓰시는 AI 앱 버튼을 누르면 문장이 복사되고 앱이 열립니다. 입력창을 길게 눌러 붙여넣기 하세요.<br>회사 이름, 고객 이름, 실제 숫자는 넣지 않습니다.</p>
 <div class="pick" id="pick">
   <p class="pq">우리 회사에 맞는 쪽을 한 번 눌러 주세요</p>
@@ -72,82 +74,82 @@ body[data-co][data-tab="s1"] #s1,body[data-co][data-tab="s2"] #s2,body[data-co][
   </div>
 </div><div class="item" data-co="svc">
   <p class="lab">우리 업계 회사 3곳</p>
-  <p class="txt" id="t2">국내에서 기업 사무실로 식사를 제공하는 구독형 구내식당 서비스 회사 3곳을 골라, 각 회사의 작년 매출과 고객사 수, 그 숫자의 출처 링크를 표로 정리해 주세요.</p>
+  <p class="txt" id="t2">국내 단체급식 회사 가운데 매출 상위 3곳을 골라, 각 회사의 작년 매출과 그 숫자의 출처 링크를 표로 정리해 주세요.</p>
   <div class="btns">
     <button class="copy" data-t="t2" type="button">복사</button>
-    <a class="go" data-t="t2" href="https://chatgpt.com/?q=%EA%B5%AD%EB%82%B4%EC%97%90%EC%84%9C%20%EA%B8%B0%EC%97%85%20%EC%82%AC%EB%AC%B4%EC%8B%A4%EB%A1%9C%20%EC%8B%9D%EC%82%AC%EB%A5%BC%20%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94%20%EA%B5%AC%EB%8F%85%ED%98%95%20%EA%B5%AC%EB%82%B4%EC%8B%9D%EB%8B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%ED%9A%8C%EC%82%AC%203%EA%B3%B3%EC%9D%84%20%EA%B3%A8%EB%9D%BC%2C%20%EA%B0%81%20%ED%9A%8C%EC%82%AC%EC%9D%98%20%EC%9E%91%EB%85%84%20%EB%A7%A4%EC%B6%9C%EA%B3%BC%20%EA%B3%A0%EA%B0%9D%EC%82%AC%20%EC%88%98%2C%20%EA%B7%B8%20%EC%88%AB%EC%9E%90%EC%9D%98%20%EC%B6%9C%EC%B2%98%20%EB%A7%81%ED%81%AC%EB%A5%BC%20%ED%91%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t2" href="https://chatgpt.com/?q=%EA%B5%AD%EB%82%B4%20%EB%8B%A8%EC%B2%B4%EA%B8%89%EC%8B%9D%20%ED%9A%8C%EC%82%AC%20%EA%B0%80%EC%9A%B4%EB%8D%B0%20%EB%A7%A4%EC%B6%9C%20%EC%83%81%EC%9C%84%203%EA%B3%B3%EC%9D%84%20%EA%B3%A8%EB%9D%BC%2C%20%EA%B0%81%20%ED%9A%8C%EC%82%AC%EC%9D%98%20%EC%9E%91%EB%85%84%20%EB%A7%A4%EC%B6%9C%EA%B3%BC%20%EA%B7%B8%20%EC%88%AB%EC%9E%90%EC%9D%98%20%EC%B6%9C%EC%B2%98%20%EB%A7%81%ED%81%AC%EB%A5%BC%20%ED%91%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t2" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t2" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
 </div></section><section id="s2"><h2><span>실습 2</span>말로 쓰는 보고서</h2><div class="item" data-co="mfg">
   <p class="lab">보낸 뒤 마이크로 2분 말하기</p>
-  <p class="txt" id="t3">지금부터 이번 주 회의에서 할 이야기를 말로 하겠습니다. 먼저 &quot;말씀하세요&quot;라고만 답하고, 제 말이 끝나면 1쪽 보고서로 정리해 주세요. 항목은 해외 거래처 소식, 생산과 납기, 다음 주 할 일입니다. 숫자는 제가 말한 것만 쓰세요.</p>
+  <p class="txt" id="t3">지금부터 다음 달 전 직원 조회에서 할 이야기를 말로 하겠습니다. 먼저 &quot;말씀하세요&quot;라고만 답하고, 제 말이 끝나면 조회 때 읽을 원고 1쪽으로 정리해 주세요. 항목은 회사 소식, 현장 안전과 품질, 직원들에게 부탁할 일입니다. 숫자는 제가 말한 것만 쓰세요.</p>
   <div class="btns">
     <button class="copy" data-t="t3" type="button">복사</button>
-    <a class="go" data-t="t3" href="https://chatgpt.com/?q=%EC%A7%80%EA%B8%88%EB%B6%80%ED%84%B0%20%EC%9D%B4%EB%B2%88%20%EC%A3%BC%20%ED%9A%8C%EC%9D%98%EC%97%90%EC%84%9C%20%ED%95%A0%20%EC%9D%B4%EC%95%BC%EA%B8%B0%EB%A5%BC%20%EB%A7%90%EB%A1%9C%20%ED%95%98%EA%B2%A0%EC%8A%B5%EB%8B%88%EB%8B%A4.%20%EB%A8%BC%EC%A0%80%20%22%EB%A7%90%EC%94%80%ED%95%98%EC%84%B8%EC%9A%94%22%EB%9D%BC%EA%B3%A0%EB%A7%8C%20%EB%8B%B5%ED%95%98%EA%B3%A0%2C%20%EC%A0%9C%20%EB%A7%90%EC%9D%B4%20%EB%81%9D%EB%82%98%EB%A9%B4%201%EC%AA%BD%20%EB%B3%B4%EA%B3%A0%EC%84%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%95%B4%EC%99%B8%20%EA%B1%B0%EB%9E%98%EC%B2%98%20%EC%86%8C%EC%8B%9D%2C%20%EC%83%9D%EC%82%B0%EA%B3%BC%20%EB%82%A9%EA%B8%B0%2C%20%EB%8B%A4%EC%9D%8C%20%EC%A3%BC%20%ED%95%A0%20%EC%9D%BC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%88%AB%EC%9E%90%EB%8A%94%20%EC%A0%9C%EA%B0%80%20%EB%A7%90%ED%95%9C%20%EA%B2%83%EB%A7%8C%20%EC%93%B0%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t3" href="https://chatgpt.com/?q=%EC%A7%80%EA%B8%88%EB%B6%80%ED%84%B0%20%EB%8B%A4%EC%9D%8C%20%EB%8B%AC%20%EC%A0%84%20%EC%A7%81%EC%9B%90%20%EC%A1%B0%ED%9A%8C%EC%97%90%EC%84%9C%20%ED%95%A0%20%EC%9D%B4%EC%95%BC%EA%B8%B0%EB%A5%BC%20%EB%A7%90%EB%A1%9C%20%ED%95%98%EA%B2%A0%EC%8A%B5%EB%8B%88%EB%8B%A4.%20%EB%A8%BC%EC%A0%80%20%22%EB%A7%90%EC%94%80%ED%95%98%EC%84%B8%EC%9A%94%22%EB%9D%BC%EA%B3%A0%EB%A7%8C%20%EB%8B%B5%ED%95%98%EA%B3%A0%2C%20%EC%A0%9C%20%EB%A7%90%EC%9D%B4%20%EB%81%9D%EB%82%98%EB%A9%B4%20%EC%A1%B0%ED%9A%8C%20%EB%95%8C%20%EC%9D%BD%EC%9D%84%20%EC%9B%90%EA%B3%A0%201%EC%AA%BD%EC%9C%BC%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%9A%8C%EC%82%AC%20%EC%86%8C%EC%8B%9D%2C%20%ED%98%84%EC%9E%A5%20%EC%95%88%EC%A0%84%EA%B3%BC%20%ED%92%88%EC%A7%88%2C%20%EC%A7%81%EC%9B%90%EB%93%A4%EC%97%90%EA%B2%8C%20%EB%B6%80%ED%83%81%ED%95%A0%20%EC%9D%BC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%88%AB%EC%9E%90%EB%8A%94%20%EC%A0%9C%EA%B0%80%20%EB%A7%90%ED%95%9C%20%EA%B2%83%EB%A7%8C%20%EC%93%B0%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t3" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t3" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
 </div><div class="item" data-co="svc">
   <p class="lab">보낸 뒤 마이크로 2분 말하기</p>
-  <p class="txt" id="t4">지금부터 이번 주 회의에서 할 이야기를 말로 하겠습니다. 먼저 &quot;말씀하세요&quot;라고만 답하고, 제 말이 끝나면 1쪽 보고서로 정리해 주세요. 항목은 고객사 소식, 식단과 현장 운영, 다음 주 할 일입니다. 숫자는 제가 말한 것만 쓰세요.</p>
+  <p class="txt" id="t4">지금부터 다음 달 전 직원 조회에서 할 이야기를 말로 하겠습니다. 먼저 &quot;말씀하세요&quot;라고만 답하고, 제 말이 끝나면 조회 때 읽을 원고 1쪽으로 정리해 주세요. 항목은 회사 소식, 위생과 서비스, 직원들에게 부탁할 일입니다. 숫자는 제가 말한 것만 쓰세요.</p>
   <div class="btns">
     <button class="copy" data-t="t4" type="button">복사</button>
-    <a class="go" data-t="t4" href="https://chatgpt.com/?q=%EC%A7%80%EA%B8%88%EB%B6%80%ED%84%B0%20%EC%9D%B4%EB%B2%88%20%EC%A3%BC%20%ED%9A%8C%EC%9D%98%EC%97%90%EC%84%9C%20%ED%95%A0%20%EC%9D%B4%EC%95%BC%EA%B8%B0%EB%A5%BC%20%EB%A7%90%EB%A1%9C%20%ED%95%98%EA%B2%A0%EC%8A%B5%EB%8B%88%EB%8B%A4.%20%EB%A8%BC%EC%A0%80%20%22%EB%A7%90%EC%94%80%ED%95%98%EC%84%B8%EC%9A%94%22%EB%9D%BC%EA%B3%A0%EB%A7%8C%20%EB%8B%B5%ED%95%98%EA%B3%A0%2C%20%EC%A0%9C%20%EB%A7%90%EC%9D%B4%20%EB%81%9D%EB%82%98%EB%A9%B4%201%EC%AA%BD%20%EB%B3%B4%EA%B3%A0%EC%84%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%EA%B3%A0%EA%B0%9D%EC%82%AC%20%EC%86%8C%EC%8B%9D%2C%20%EC%8B%9D%EB%8B%A8%EA%B3%BC%20%ED%98%84%EC%9E%A5%20%EC%9A%B4%EC%98%81%2C%20%EB%8B%A4%EC%9D%8C%20%EC%A3%BC%20%ED%95%A0%20%EC%9D%BC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%88%AB%EC%9E%90%EB%8A%94%20%EC%A0%9C%EA%B0%80%20%EB%A7%90%ED%95%9C%20%EA%B2%83%EB%A7%8C%20%EC%93%B0%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t4" href="https://chatgpt.com/?q=%EC%A7%80%EA%B8%88%EB%B6%80%ED%84%B0%20%EB%8B%A4%EC%9D%8C%20%EB%8B%AC%20%EC%A0%84%20%EC%A7%81%EC%9B%90%20%EC%A1%B0%ED%9A%8C%EC%97%90%EC%84%9C%20%ED%95%A0%20%EC%9D%B4%EC%95%BC%EA%B8%B0%EB%A5%BC%20%EB%A7%90%EB%A1%9C%20%ED%95%98%EA%B2%A0%EC%8A%B5%EB%8B%88%EB%8B%A4.%20%EB%A8%BC%EC%A0%80%20%22%EB%A7%90%EC%94%80%ED%95%98%EC%84%B8%EC%9A%94%22%EB%9D%BC%EA%B3%A0%EB%A7%8C%20%EB%8B%B5%ED%95%98%EA%B3%A0%2C%20%EC%A0%9C%20%EB%A7%90%EC%9D%B4%20%EB%81%9D%EB%82%98%EB%A9%B4%20%EC%A1%B0%ED%9A%8C%20%EB%95%8C%20%EC%9D%BD%EC%9D%84%20%EC%9B%90%EA%B3%A0%201%EC%AA%BD%EC%9C%BC%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%9A%8C%EC%82%AC%20%EC%86%8C%EC%8B%9D%2C%20%EC%9C%84%EC%83%9D%EA%B3%BC%20%EC%84%9C%EB%B9%84%EC%8A%A4%2C%20%EC%A7%81%EC%9B%90%EB%93%A4%EC%97%90%EA%B2%8C%20%EB%B6%80%ED%83%81%ED%95%A0%20%EC%9D%BC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%88%AB%EC%9E%90%EB%8A%94%20%EC%A0%9C%EA%B0%80%20%EB%A7%90%ED%95%9C%20%EA%B2%83%EB%A7%8C%20%EC%93%B0%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t4" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t4" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
 </div></section><section id="s3"><h2><span>실습 3</span>AI를 사외이사로 앉히기</h2><div class="item" data-co="mfg">
   <p class="lab">회사 이름과 숫자는 빼고 답하기</p>
-  <p class="txt" id="t5">우리는 정형외과용 붕대와 부목을 만들어 여러 나라에 수출하는 회사입니다. 우리 회사 사외이사가 되어 주세요. 먼저 제 고민을 한 문장으로 물어보고, 답을 들으면 반대 근거 5가지, 1년 뒤 실패 이유 3가지(환율, 원자재, 해외 인증도 살펴서), 필요한 데이터 3가지를 알려 주세요.</p>
+  <p class="txt" id="t5">우리는 정형외과용 붕대와 부목을 만들어 여러 나라에 수출하는 회사입니다. 우리 회사 사외이사가 되어 주세요. 먼저 제 고민을 한 문장으로 물어보고, 답을 들으면 반대 근거 5가지, 1년 뒤 실패 이유 3가지(환율, 원자재, 해외 인증도 살펴서), 필요한 데이터 3가지를 알려 주세요. 각 항목은 한 줄로, 쉬운 말로 써 주세요.</p>
   <div class="btns">
     <button class="copy" data-t="t5" type="button">복사</button>
-    <a class="go" data-t="t5" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EC%A0%95%ED%98%95%EC%99%B8%EA%B3%BC%EC%9A%A9%20%EB%B6%95%EB%8C%80%EC%99%80%20%EB%B6%80%EB%AA%A9%EC%9D%84%20%EB%A7%8C%EB%93%A4%EC%96%B4%20%EC%97%AC%EB%9F%AC%20%EB%82%98%EB%9D%BC%EC%97%90%20%EC%88%98%EC%B6%9C%ED%95%98%EB%8A%94%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%9A%B0%EB%A6%AC%20%ED%9A%8C%EC%82%AC%20%EC%82%AC%EC%99%B8%EC%9D%B4%EC%82%AC%EA%B0%80%20%EB%90%98%EC%96%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EB%A8%BC%EC%A0%80%20%EC%A0%9C%20%EA%B3%A0%EB%AF%BC%EC%9D%84%20%ED%95%9C%20%EB%AC%B8%EC%9E%A5%EC%9C%BC%EB%A1%9C%20%EB%AC%BC%EC%96%B4%EB%B3%B4%EA%B3%A0%2C%20%EB%8B%B5%EC%9D%84%20%EB%93%A4%EC%9C%BC%EB%A9%B4%20%EB%B0%98%EB%8C%80%20%EA%B7%BC%EA%B1%B0%205%EA%B0%80%EC%A7%80%2C%201%EB%85%84%20%EB%92%A4%20%EC%8B%A4%ED%8C%A8%20%EC%9D%B4%EC%9C%A0%203%EA%B0%80%EC%A7%80%28%ED%99%98%EC%9C%A8%2C%20%EC%9B%90%EC%9E%90%EC%9E%AC%2C%20%ED%95%B4%EC%99%B8%20%EC%9D%B8%EC%A6%9D%EB%8F%84%20%EC%82%B4%ED%8E%B4%EC%84%9C%29%2C%20%ED%95%84%EC%9A%94%ED%95%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%203%EA%B0%80%EC%A7%80%EB%A5%BC%20%EC%95%8C%EB%A0%A4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t5" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EC%A0%95%ED%98%95%EC%99%B8%EA%B3%BC%EC%9A%A9%20%EB%B6%95%EB%8C%80%EC%99%80%20%EB%B6%80%EB%AA%A9%EC%9D%84%20%EB%A7%8C%EB%93%A4%EC%96%B4%20%EC%97%AC%EB%9F%AC%20%EB%82%98%EB%9D%BC%EC%97%90%20%EC%88%98%EC%B6%9C%ED%95%98%EB%8A%94%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%9A%B0%EB%A6%AC%20%ED%9A%8C%EC%82%AC%20%EC%82%AC%EC%99%B8%EC%9D%B4%EC%82%AC%EA%B0%80%20%EB%90%98%EC%96%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EB%A8%BC%EC%A0%80%20%EC%A0%9C%20%EA%B3%A0%EB%AF%BC%EC%9D%84%20%ED%95%9C%20%EB%AC%B8%EC%9E%A5%EC%9C%BC%EB%A1%9C%20%EB%AC%BC%EC%96%B4%EB%B3%B4%EA%B3%A0%2C%20%EB%8B%B5%EC%9D%84%20%EB%93%A4%EC%9C%BC%EB%A9%B4%20%EB%B0%98%EB%8C%80%20%EA%B7%BC%EA%B1%B0%205%EA%B0%80%EC%A7%80%2C%201%EB%85%84%20%EB%92%A4%20%EC%8B%A4%ED%8C%A8%20%EC%9D%B4%EC%9C%A0%203%EA%B0%80%EC%A7%80%28%ED%99%98%EC%9C%A8%2C%20%EC%9B%90%EC%9E%90%EC%9E%AC%2C%20%ED%95%B4%EC%99%B8%20%EC%9D%B8%EC%A6%9D%EB%8F%84%20%EC%82%B4%ED%8E%B4%EC%84%9C%29%2C%20%ED%95%84%EC%9A%94%ED%95%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%203%EA%B0%80%EC%A7%80%EB%A5%BC%20%EC%95%8C%EB%A0%A4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EA%B0%81%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%95%9C%20%EC%A4%84%EB%A1%9C%2C%20%EC%89%AC%EC%9A%B4%20%EB%A7%90%EB%A1%9C%20%EC%8D%A8%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t5" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t5" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
 </div><div class="item" data-co="svc">
   <p class="lab">회사 이름과 숫자는 빼고 답하기</p>
-  <p class="txt" id="t6">우리는 기업 사무실에 셰프가 만든 식사를 구독으로 제공하는 회사입니다. 우리 회사 사외이사가 되어 주세요. 먼저 제 고민을 한 문장으로 물어보고, 답을 들으면 반대 근거 5가지, 1년 뒤 실패 이유 3가지(고객사 계약, 식자재 원가, 현장 인력도 살펴서), 필요한 데이터 3가지를 알려 주세요.</p>
+  <p class="txt" id="t6">우리는 기업 사무실에 셰프가 만든 식사를 구독으로 제공하는 회사입니다. 우리 회사 사외이사가 되어 주세요. 먼저 제 고민을 한 문장으로 물어보고, 답을 들으면 반대 근거 5가지, 1년 뒤 실패 이유 3가지(고객사 계약, 식자재 원가, 현장 인력도 살펴서), 필요한 데이터 3가지를 알려 주세요. 각 항목은 한 줄로, 쉬운 말로 써 주세요.</p>
   <div class="btns">
     <button class="copy" data-t="t6" type="button">복사</button>
-    <a class="go" data-t="t6" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EA%B8%B0%EC%97%85%20%EC%82%AC%EB%AC%B4%EC%8B%A4%EC%97%90%20%EC%85%B0%ED%94%84%EA%B0%80%20%EB%A7%8C%EB%93%A0%20%EC%8B%9D%EC%82%AC%EB%A5%BC%20%EA%B5%AC%EB%8F%85%EC%9C%BC%EB%A1%9C%20%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%9A%B0%EB%A6%AC%20%ED%9A%8C%EC%82%AC%20%EC%82%AC%EC%99%B8%EC%9D%B4%EC%82%AC%EA%B0%80%20%EB%90%98%EC%96%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EB%A8%BC%EC%A0%80%20%EC%A0%9C%20%EA%B3%A0%EB%AF%BC%EC%9D%84%20%ED%95%9C%20%EB%AC%B8%EC%9E%A5%EC%9C%BC%EB%A1%9C%20%EB%AC%BC%EC%96%B4%EB%B3%B4%EA%B3%A0%2C%20%EB%8B%B5%EC%9D%84%20%EB%93%A4%EC%9C%BC%EB%A9%B4%20%EB%B0%98%EB%8C%80%20%EA%B7%BC%EA%B1%B0%205%EA%B0%80%EC%A7%80%2C%201%EB%85%84%20%EB%92%A4%20%EC%8B%A4%ED%8C%A8%20%EC%9D%B4%EC%9C%A0%203%EA%B0%80%EC%A7%80%28%EA%B3%A0%EA%B0%9D%EC%82%AC%20%EA%B3%84%EC%95%BD%2C%20%EC%8B%9D%EC%9E%90%EC%9E%AC%20%EC%9B%90%EA%B0%80%2C%20%ED%98%84%EC%9E%A5%20%EC%9D%B8%EB%A0%A5%EB%8F%84%20%EC%82%B4%ED%8E%B4%EC%84%9C%29%2C%20%ED%95%84%EC%9A%94%ED%95%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%203%EA%B0%80%EC%A7%80%EB%A5%BC%20%EC%95%8C%EB%A0%A4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t6" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EA%B8%B0%EC%97%85%20%EC%82%AC%EB%AC%B4%EC%8B%A4%EC%97%90%20%EC%85%B0%ED%94%84%EA%B0%80%20%EB%A7%8C%EB%93%A0%20%EC%8B%9D%EC%82%AC%EB%A5%BC%20%EA%B5%AC%EB%8F%85%EC%9C%BC%EB%A1%9C%20%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%9A%B0%EB%A6%AC%20%ED%9A%8C%EC%82%AC%20%EC%82%AC%EC%99%B8%EC%9D%B4%EC%82%AC%EA%B0%80%20%EB%90%98%EC%96%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EB%A8%BC%EC%A0%80%20%EC%A0%9C%20%EA%B3%A0%EB%AF%BC%EC%9D%84%20%ED%95%9C%20%EB%AC%B8%EC%9E%A5%EC%9C%BC%EB%A1%9C%20%EB%AC%BC%EC%96%B4%EB%B3%B4%EA%B3%A0%2C%20%EB%8B%B5%EC%9D%84%20%EB%93%A4%EC%9C%BC%EB%A9%B4%20%EB%B0%98%EB%8C%80%20%EA%B7%BC%EA%B1%B0%205%EA%B0%80%EC%A7%80%2C%201%EB%85%84%20%EB%92%A4%20%EC%8B%A4%ED%8C%A8%20%EC%9D%B4%EC%9C%A0%203%EA%B0%80%EC%A7%80%28%EA%B3%A0%EA%B0%9D%EC%82%AC%20%EA%B3%84%EC%95%BD%2C%20%EC%8B%9D%EC%9E%90%EC%9E%AC%20%EC%9B%90%EA%B0%80%2C%20%ED%98%84%EC%9E%A5%20%EC%9D%B8%EB%A0%A5%EB%8F%84%20%EC%82%B4%ED%8E%B4%EC%84%9C%29%2C%20%ED%95%84%EC%9A%94%ED%95%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%203%EA%B0%80%EC%A7%80%EB%A5%BC%20%EC%95%8C%EB%A0%A4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EA%B0%81%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%95%9C%20%EC%A4%84%EB%A1%9C%2C%20%EC%89%AC%EC%9A%B4%20%EB%A7%90%EB%A1%9C%20%EC%8D%A8%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t6" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t6" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
 </div></section><section id="s4"><h2><span>선택 실습</span>회사별로 하나</h2><div class="item" data-co="mfg">
   <p class="lab">거래처가 떠나기 전에 보이는 신호</p>
-  <p class="txt" id="t7">우리는 정형외과용 붕대와 부목을 해외 거래처에 OEM으로도 공급합니다. 거래처가 주문을 줄이거나 다른 공급처로 옮기기 전에 보이는 신호 10가지와, 각 신호를 미리 알 수 있는 데이터를 표로 정리해 주세요.</p>
+  <p class="txt" id="t7">우리는 정형외과용 붕대와 부목을 해외 거래처에 OEM으로도 공급합니다. 거래처가 주문을 줄이거나 다른 공급처로 옮기기 전에 보이는 신호 10가지와, 각 신호를 미리 알 수 있는 데이터를 표로 정리해 주세요. 각 항목은 한 줄로, 쉬운 말로 써 주세요.</p>
   <div class="btns">
     <button class="copy" data-t="t7" type="button">복사</button>
-    <a class="go" data-t="t7" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EC%A0%95%ED%98%95%EC%99%B8%EA%B3%BC%EC%9A%A9%20%EB%B6%95%EB%8C%80%EC%99%80%20%EB%B6%80%EB%AA%A9%EC%9D%84%20%ED%95%B4%EC%99%B8%20%EA%B1%B0%EB%9E%98%EC%B2%98%EC%97%90%20OEM%EC%9C%BC%EB%A1%9C%EB%8F%84%20%EA%B3%B5%EA%B8%89%ED%95%A9%EB%8B%88%EB%8B%A4.%20%EA%B1%B0%EB%9E%98%EC%B2%98%EA%B0%80%20%EC%A3%BC%EB%AC%B8%EC%9D%84%20%EC%A4%84%EC%9D%B4%EA%B1%B0%EB%82%98%20%EB%8B%A4%EB%A5%B8%20%EA%B3%B5%EA%B8%89%EC%B2%98%EB%A1%9C%20%EC%98%AE%EA%B8%B0%EA%B8%B0%20%EC%A0%84%EC%97%90%20%EB%B3%B4%EC%9D%B4%EB%8A%94%20%EC%8B%A0%ED%98%B8%2010%EA%B0%80%EC%A7%80%EC%99%80%2C%20%EA%B0%81%20%EC%8B%A0%ED%98%B8%EB%A5%BC%20%EB%AF%B8%EB%A6%AC%20%EC%95%8C%20%EC%88%98%20%EC%9E%88%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%ED%91%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t7" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EC%A0%95%ED%98%95%EC%99%B8%EA%B3%BC%EC%9A%A9%20%EB%B6%95%EB%8C%80%EC%99%80%20%EB%B6%80%EB%AA%A9%EC%9D%84%20%ED%95%B4%EC%99%B8%20%EA%B1%B0%EB%9E%98%EC%B2%98%EC%97%90%20OEM%EC%9C%BC%EB%A1%9C%EB%8F%84%20%EA%B3%B5%EA%B8%89%ED%95%A9%EB%8B%88%EB%8B%A4.%20%EA%B1%B0%EB%9E%98%EC%B2%98%EA%B0%80%20%EC%A3%BC%EB%AC%B8%EC%9D%84%20%EC%A4%84%EC%9D%B4%EA%B1%B0%EB%82%98%20%EB%8B%A4%EB%A5%B8%20%EA%B3%B5%EA%B8%89%EC%B2%98%EB%A1%9C%20%EC%98%AE%EA%B8%B0%EA%B8%B0%20%EC%A0%84%EC%97%90%20%EB%B3%B4%EC%9D%B4%EB%8A%94%20%EC%8B%A0%ED%98%B8%2010%EA%B0%80%EC%A7%80%EC%99%80%2C%20%EA%B0%81%20%EC%8B%A0%ED%98%B8%EB%A5%BC%20%EB%AF%B8%EB%A6%AC%20%EC%95%8C%20%EC%88%98%20%EC%9E%88%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%ED%91%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EA%B0%81%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%95%9C%20%EC%A4%84%EB%A1%9C%2C%20%EC%89%AC%EC%9A%B4%20%EB%A7%90%EB%A1%9C%20%EC%8D%A8%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t7" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t7" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
 </div><div class="item" data-co="svc">
   <p class="lab">고객사가 떠나기 전에 보이는 신호</p>
-  <p class="txt" id="t8">우리는 기업 사무실에 식사를 구독으로 제공합니다. 고객사가 계약을 끝내기 전에 보이는 신호 10가지(식수 변화, 남는 음식, 메뉴 반응 등)와, 각 신호를 미리 알 수 있는 데이터를 표로 정리해 주세요.</p>
+  <p class="txt" id="t8">우리는 기업 사무실에 식사를 구독으로 제공합니다. 고객사가 계약을 끝내기 전에 보이는 신호 10가지(식수 변화, 남는 음식, 메뉴 반응 등)와, 각 신호를 미리 알 수 있는 데이터를 표로 정리해 주세요. 각 항목은 한 줄로, 쉬운 말로 써 주세요.</p>
   <div class="btns">
     <button class="copy" data-t="t8" type="button">복사</button>
-    <a class="go" data-t="t8" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EA%B8%B0%EC%97%85%20%EC%82%AC%EB%AC%B4%EC%8B%A4%EC%97%90%20%EC%8B%9D%EC%82%AC%EB%A5%BC%20%EA%B5%AC%EB%8F%85%EC%9C%BC%EB%A1%9C%20%EC%A0%9C%EA%B3%B5%ED%95%A9%EB%8B%88%EB%8B%A4.%20%EA%B3%A0%EA%B0%9D%EC%82%AC%EA%B0%80%20%EA%B3%84%EC%95%BD%EC%9D%84%20%EB%81%9D%EB%82%B4%EA%B8%B0%20%EC%A0%84%EC%97%90%20%EB%B3%B4%EC%9D%B4%EB%8A%94%20%EC%8B%A0%ED%98%B8%2010%EA%B0%80%EC%A7%80%28%EC%8B%9D%EC%88%98%20%EB%B3%80%ED%99%94%2C%20%EB%82%A8%EB%8A%94%20%EC%9D%8C%EC%8B%9D%2C%20%EB%A9%94%EB%89%B4%20%EB%B0%98%EC%9D%91%20%EB%93%B1%29%EC%99%80%2C%20%EA%B0%81%20%EC%8B%A0%ED%98%B8%EB%A5%BC%20%EB%AF%B8%EB%A6%AC%20%EC%95%8C%20%EC%88%98%20%EC%9E%88%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%ED%91%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t8" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EA%B8%B0%EC%97%85%20%EC%82%AC%EB%AC%B4%EC%8B%A4%EC%97%90%20%EC%8B%9D%EC%82%AC%EB%A5%BC%20%EA%B5%AC%EB%8F%85%EC%9C%BC%EB%A1%9C%20%EC%A0%9C%EA%B3%B5%ED%95%A9%EB%8B%88%EB%8B%A4.%20%EA%B3%A0%EA%B0%9D%EC%82%AC%EA%B0%80%20%EA%B3%84%EC%95%BD%EC%9D%84%20%EB%81%9D%EB%82%B4%EA%B8%B0%20%EC%A0%84%EC%97%90%20%EB%B3%B4%EC%9D%B4%EB%8A%94%20%EC%8B%A0%ED%98%B8%2010%EA%B0%80%EC%A7%80%28%EC%8B%9D%EC%88%98%20%EB%B3%80%ED%99%94%2C%20%EB%82%A8%EB%8A%94%20%EC%9D%8C%EC%8B%9D%2C%20%EB%A9%94%EB%89%B4%20%EB%B0%98%EC%9D%91%20%EB%93%B1%29%EC%99%80%2C%20%EA%B0%81%20%EC%8B%A0%ED%98%B8%EB%A5%BC%20%EB%AF%B8%EB%A6%AC%20%EC%95%8C%20%EC%88%98%20%EC%9E%88%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%ED%91%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EA%B0%81%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%95%9C%20%EC%A4%84%EB%A1%9C%2C%20%EC%89%AC%EC%9A%B4%20%EB%A7%90%EB%A1%9C%20%EC%8D%A8%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t8" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t8" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
 </div><div class="item" data-co="mfg">
   <p class="lab">해외 시장 조사</p>
-  <p class="txt" id="t9">웹에서 검색해서, 베트남에서 정형외과용 캐스팅테이프와 부목이 병원까지 가는 유통 경로와 수입 허가 절차를 출처 링크와 함께 정리해 주세요.</p>
+  <p class="txt" id="t9">웹에서 검색해서, 베트남에서 정형외과용 캐스팅테이프와 부목이 병원까지 가는 유통 경로와 수입 허가 절차를 출처 링크와 함께 정리해 주세요. 각 항목은 한 줄로, 쉬운 말로 써 주세요.</p>
   <div class="btns">
     <button class="copy" data-t="t9" type="button">복사</button>
-    <a class="go" data-t="t9" href="https://chatgpt.com/?q=%EC%9B%B9%EC%97%90%EC%84%9C%20%EA%B2%80%EC%83%89%ED%95%B4%EC%84%9C%2C%20%EB%B2%A0%ED%8A%B8%EB%82%A8%EC%97%90%EC%84%9C%20%EC%A0%95%ED%98%95%EC%99%B8%EA%B3%BC%EC%9A%A9%20%EC%BA%90%EC%8A%A4%ED%8C%85%ED%85%8C%EC%9D%B4%ED%94%84%EC%99%80%20%EB%B6%80%EB%AA%A9%EC%9D%B4%20%EB%B3%91%EC%9B%90%EA%B9%8C%EC%A7%80%20%EA%B0%80%EB%8A%94%20%EC%9C%A0%ED%86%B5%20%EA%B2%BD%EB%A1%9C%EC%99%80%20%EC%88%98%EC%9E%85%20%ED%97%88%EA%B0%80%20%EC%A0%88%EC%B0%A8%EB%A5%BC%20%EC%B6%9C%EC%B2%98%20%EB%A7%81%ED%81%AC%EC%99%80%20%ED%95%A8%EA%BB%98%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t9" href="https://chatgpt.com/?q=%EC%9B%B9%EC%97%90%EC%84%9C%20%EA%B2%80%EC%83%89%ED%95%B4%EC%84%9C%2C%20%EB%B2%A0%ED%8A%B8%EB%82%A8%EC%97%90%EC%84%9C%20%EC%A0%95%ED%98%95%EC%99%B8%EA%B3%BC%EC%9A%A9%20%EC%BA%90%EC%8A%A4%ED%8C%85%ED%85%8C%EC%9D%B4%ED%94%84%EC%99%80%20%EB%B6%80%EB%AA%A9%EC%9D%B4%20%EB%B3%91%EC%9B%90%EA%B9%8C%EC%A7%80%20%EA%B0%80%EB%8A%94%20%EC%9C%A0%ED%86%B5%20%EA%B2%BD%EB%A1%9C%EC%99%80%20%EC%88%98%EC%9E%85%20%ED%97%88%EA%B0%80%20%EC%A0%88%EC%B0%A8%EB%A5%BC%20%EC%B6%9C%EC%B2%98%20%EB%A7%81%ED%81%AC%EC%99%80%20%ED%95%A8%EA%BB%98%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EA%B0%81%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%95%9C%20%EC%A4%84%EB%A1%9C%2C%20%EC%89%AC%EC%9A%B4%20%EB%A7%90%EB%A1%9C%20%EC%8D%A8%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t9" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t9" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
 </div><div class="item" data-co="svc">
   <p class="lab">시장 조사</p>
-  <p class="txt" id="t10">웹에서 검색해서, 최근 1년 동안 국내 기업들의 사내 식사 복지와 구내식당 운영 방식이 어떻게 바뀌었는지 기사 5개를 출처 링크와 함께 요약해 주세요.</p>
+  <p class="txt" id="t10">웹에서 검색해서, 최근 1년 동안 국내 기업들의 사내 식사 복지와 구내식당 운영 방식이 어떻게 바뀌었는지 기사 5개를 출처 링크와 함께 요약해 주세요. 각 항목은 한 줄로, 쉬운 말로 써 주세요.</p>
   <div class="btns">
     <button class="copy" data-t="t10" type="button">복사</button>
-    <a class="go" data-t="t10" href="https://chatgpt.com/?q=%EC%9B%B9%EC%97%90%EC%84%9C%20%EA%B2%80%EC%83%89%ED%95%B4%EC%84%9C%2C%20%EC%B5%9C%EA%B7%BC%201%EB%85%84%20%EB%8F%99%EC%95%88%20%EA%B5%AD%EB%82%B4%20%EA%B8%B0%EC%97%85%EB%93%A4%EC%9D%98%20%EC%82%AC%EB%82%B4%20%EC%8B%9D%EC%82%AC%20%EB%B3%B5%EC%A7%80%EC%99%80%20%EA%B5%AC%EB%82%B4%EC%8B%9D%EB%8B%B9%20%EC%9A%B4%EC%98%81%20%EB%B0%A9%EC%8B%9D%EC%9D%B4%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EB%B0%94%EB%80%8C%EC%97%88%EB%8A%94%EC%A7%80%20%EA%B8%B0%EC%82%AC%205%EA%B0%9C%EB%A5%BC%20%EC%B6%9C%EC%B2%98%20%EB%A7%81%ED%81%AC%EC%99%80%20%ED%95%A8%EA%BB%98%20%EC%9A%94%EC%95%BD%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t10" href="https://chatgpt.com/?q=%EC%9B%B9%EC%97%90%EC%84%9C%20%EA%B2%80%EC%83%89%ED%95%B4%EC%84%9C%2C%20%EC%B5%9C%EA%B7%BC%201%EB%85%84%20%EB%8F%99%EC%95%88%20%EA%B5%AD%EB%82%B4%20%EA%B8%B0%EC%97%85%EB%93%A4%EC%9D%98%20%EC%82%AC%EB%82%B4%20%EC%8B%9D%EC%82%AC%20%EB%B3%B5%EC%A7%80%EC%99%80%20%EA%B5%AC%EB%82%B4%EC%8B%9D%EB%8B%B9%20%EC%9A%B4%EC%98%81%20%EB%B0%A9%EC%8B%9D%EC%9D%B4%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EB%B0%94%EB%80%8C%EC%97%88%EB%8A%94%EC%A7%80%20%EA%B8%B0%EC%82%AC%205%EA%B0%9C%EB%A5%BC%20%EC%B6%9C%EC%B2%98%20%EB%A7%81%ED%81%AC%EC%99%80%20%ED%95%A8%EA%BB%98%20%EC%9A%94%EC%95%BD%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EA%B0%81%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%95%9C%20%EC%A4%84%EB%A1%9C%2C%20%EC%89%AC%EC%9A%B4%20%EB%A7%90%EB%A1%9C%20%EC%8D%A8%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t10" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t10" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
@@ -171,41 +173,47 @@ body[data-co][data-tab="s1"] #s1,body[data-co][data-tab="s2"] #s2,body[data-co][
   </div>
 </div><div class="item" data-co="mfg">
   <p class="lab">우리 강점으로 할 만한 새 사업</p>
-  <p class="txt" id="t13">우리는 정형외과용 붕대와 부목을 만들어 여러 나라에 수출해 온 회사입니다. 먼저 우리 강점 3가지를 물어봐 주세요. 답을 들으면 그 강점으로 해 볼 만한 새 사업 아이디어 10개를 투자 규모가 작은 순서로 정리해 주세요.</p>
+  <p class="txt" id="t13">우리는 정형외과용 붕대와 부목을 만들어 여러 나라에 수출해 온 회사입니다. 먼저 우리 강점 3가지를 물어봐 주세요. 답을 들으면 그 강점으로 해 볼 만한 새 사업 아이디어 10개를 투자 규모가 작은 순서로 정리해 주세요. 각 항목은 한 줄로, 쉬운 말로 써 주세요.</p>
   <div class="btns">
     <button class="copy" data-t="t13" type="button">복사</button>
-    <a class="go" data-t="t13" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EC%A0%95%ED%98%95%EC%99%B8%EA%B3%BC%EC%9A%A9%20%EB%B6%95%EB%8C%80%EC%99%80%20%EB%B6%80%EB%AA%A9%EC%9D%84%20%EB%A7%8C%EB%93%A4%EC%96%B4%20%EC%97%AC%EB%9F%AC%20%EB%82%98%EB%9D%BC%EC%97%90%20%EC%88%98%EC%B6%9C%ED%95%B4%20%EC%98%A8%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EB%A8%BC%EC%A0%80%20%EC%9A%B0%EB%A6%AC%20%EA%B0%95%EC%A0%90%203%EA%B0%80%EC%A7%80%EB%A5%BC%20%EB%AC%BC%EC%96%B4%EB%B4%90%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EB%8B%B5%EC%9D%84%20%EB%93%A4%EC%9C%BC%EB%A9%B4%20%EA%B7%B8%20%EA%B0%95%EC%A0%90%EC%9C%BC%EB%A1%9C%20%ED%95%B4%20%EB%B3%BC%20%EB%A7%8C%ED%95%9C%20%EC%83%88%20%EC%82%AC%EC%97%85%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%2010%EA%B0%9C%EB%A5%BC%20%ED%88%AC%EC%9E%90%20%EA%B7%9C%EB%AA%A8%EA%B0%80%20%EC%9E%91%EC%9D%80%20%EC%88%9C%EC%84%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t13" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EC%A0%95%ED%98%95%EC%99%B8%EA%B3%BC%EC%9A%A9%20%EB%B6%95%EB%8C%80%EC%99%80%20%EB%B6%80%EB%AA%A9%EC%9D%84%20%EB%A7%8C%EB%93%A4%EC%96%B4%20%EC%97%AC%EB%9F%AC%20%EB%82%98%EB%9D%BC%EC%97%90%20%EC%88%98%EC%B6%9C%ED%95%B4%20%EC%98%A8%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EB%A8%BC%EC%A0%80%20%EC%9A%B0%EB%A6%AC%20%EA%B0%95%EC%A0%90%203%EA%B0%80%EC%A7%80%EB%A5%BC%20%EB%AC%BC%EC%96%B4%EB%B4%90%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EB%8B%B5%EC%9D%84%20%EB%93%A4%EC%9C%BC%EB%A9%B4%20%EA%B7%B8%20%EA%B0%95%EC%A0%90%EC%9C%BC%EB%A1%9C%20%ED%95%B4%20%EB%B3%BC%20%EB%A7%8C%ED%95%9C%20%EC%83%88%20%EC%82%AC%EC%97%85%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%2010%EA%B0%9C%EB%A5%BC%20%ED%88%AC%EC%9E%90%20%EA%B7%9C%EB%AA%A8%EA%B0%80%20%EC%9E%91%EC%9D%80%20%EC%88%9C%EC%84%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EA%B0%81%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%95%9C%20%EC%A4%84%EB%A1%9C%2C%20%EC%89%AC%EC%9A%B4%20%EB%A7%90%EB%A1%9C%20%EC%8D%A8%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t13" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t13" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
 </div><div class="item" data-co="svc">
   <p class="lab">우리 강점으로 할 만한 새 사업</p>
-  <p class="txt" id="t14">우리는 기업 고객에게 셰프가 만든 식사를 구독으로 제공해 온 회사입니다. 먼저 우리 강점 3가지를 물어봐 주세요. 답을 들으면 그 강점으로 해 볼 만한 새 사업 아이디어 10개를 투자 규모가 작은 순서로 정리해 주세요.</p>
+  <p class="txt" id="t14">우리는 기업 고객에게 셰프가 만든 식사를 구독으로 제공해 온 회사입니다. 먼저 우리 강점 3가지를 물어봐 주세요. 답을 들으면 그 강점으로 해 볼 만한 새 사업 아이디어 10개를 투자 규모가 작은 순서로 정리해 주세요. 각 항목은 한 줄로, 쉬운 말로 써 주세요.</p>
   <div class="btns">
     <button class="copy" data-t="t14" type="button">복사</button>
-    <a class="go" data-t="t14" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EA%B8%B0%EC%97%85%20%EA%B3%A0%EA%B0%9D%EC%97%90%EA%B2%8C%20%EC%85%B0%ED%94%84%EA%B0%80%20%EB%A7%8C%EB%93%A0%20%EC%8B%9D%EC%82%AC%EB%A5%BC%20%EA%B5%AC%EB%8F%85%EC%9C%BC%EB%A1%9C%20%EC%A0%9C%EA%B3%B5%ED%95%B4%20%EC%98%A8%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EB%A8%BC%EC%A0%80%20%EC%9A%B0%EB%A6%AC%20%EA%B0%95%EC%A0%90%203%EA%B0%80%EC%A7%80%EB%A5%BC%20%EB%AC%BC%EC%96%B4%EB%B4%90%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EB%8B%B5%EC%9D%84%20%EB%93%A4%EC%9C%BC%EB%A9%B4%20%EA%B7%B8%20%EA%B0%95%EC%A0%90%EC%9C%BC%EB%A1%9C%20%ED%95%B4%20%EB%B3%BC%20%EB%A7%8C%ED%95%9C%20%EC%83%88%20%EC%82%AC%EC%97%85%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%2010%EA%B0%9C%EB%A5%BC%20%ED%88%AC%EC%9E%90%20%EA%B7%9C%EB%AA%A8%EA%B0%80%20%EC%9E%91%EC%9D%80%20%EC%88%9C%EC%84%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t14" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EA%B8%B0%EC%97%85%20%EA%B3%A0%EA%B0%9D%EC%97%90%EA%B2%8C%20%EC%85%B0%ED%94%84%EA%B0%80%20%EB%A7%8C%EB%93%A0%20%EC%8B%9D%EC%82%AC%EB%A5%BC%20%EA%B5%AC%EB%8F%85%EC%9C%BC%EB%A1%9C%20%EC%A0%9C%EA%B3%B5%ED%95%B4%20%EC%98%A8%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EB%A8%BC%EC%A0%80%20%EC%9A%B0%EB%A6%AC%20%EA%B0%95%EC%A0%90%203%EA%B0%80%EC%A7%80%EB%A5%BC%20%EB%AC%BC%EC%96%B4%EB%B4%90%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EB%8B%B5%EC%9D%84%20%EB%93%A4%EC%9C%BC%EB%A9%B4%20%EA%B7%B8%20%EA%B0%95%EC%A0%90%EC%9C%BC%EB%A1%9C%20%ED%95%B4%20%EB%B3%BC%20%EB%A7%8C%ED%95%9C%20%EC%83%88%20%EC%82%AC%EC%97%85%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%2010%EA%B0%9C%EB%A5%BC%20%ED%88%AC%EC%9E%90%20%EA%B7%9C%EB%AA%A8%EA%B0%80%20%EC%9E%91%EC%9D%80%20%EC%88%9C%EC%84%9C%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EA%B0%81%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%95%9C%20%EC%A4%84%EB%A1%9C%2C%20%EC%89%AC%EC%9A%B4%20%EB%A7%90%EB%A1%9C%20%EC%8D%A8%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t14" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t14" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
 </div></section><section id="s5"><h2><span>실습 4</span>우리 회사 AI 원칙 1쪽</h2><div class="item" data-co="mfg">
   <p class="lab">두 분이 상의해서 답하기</p>
-  <p class="txt" id="t15">우리는 의료용품을 만들어 수출하는 회사입니다. AI 사용 원칙 1쪽을 만들려고 합니다. 권장할 업무, AI에 넣지 않을 정보(바이어 단가, 계약 조건, 인증 서류 등), 지원할 비용, 책임자를 하나씩 물어본 뒤 직원 공지용 1쪽으로 정리해 주세요.</p>
+  <p class="txt" id="t15">우리는 의료용품을 만들어 수출하는 회사입니다. AI 사용 원칙 1쪽을 만들려고 합니다. 권장할 업무, AI에 넣지 않을 정보(바이어 단가, 계약 조건, 인증 서류 등), 지원할 비용, 책임자를 하나씩 물어본 뒤 직원 공지용 1쪽으로 정리해 주세요. 각 항목은 한 줄로, 쉬운 말로 써 주세요.</p>
   <div class="btns">
     <button class="copy" data-t="t15" type="button">복사</button>
-    <a class="go" data-t="t15" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EC%9D%98%EB%A3%8C%EC%9A%A9%ED%92%88%EC%9D%84%20%EB%A7%8C%EB%93%A4%EC%96%B4%20%EC%88%98%EC%B6%9C%ED%95%98%EB%8A%94%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20AI%20%EC%82%AC%EC%9A%A9%20%EC%9B%90%EC%B9%99%201%EC%AA%BD%EC%9D%84%20%EB%A7%8C%EB%93%A4%EB%A0%A4%EA%B3%A0%20%ED%95%A9%EB%8B%88%EB%8B%A4.%20%EA%B6%8C%EC%9E%A5%ED%95%A0%20%EC%97%85%EB%AC%B4%2C%20AI%EC%97%90%20%EB%84%A3%EC%A7%80%20%EC%95%8A%EC%9D%84%20%EC%A0%95%EB%B3%B4%28%EB%B0%94%EC%9D%B4%EC%96%B4%20%EB%8B%A8%EA%B0%80%2C%20%EA%B3%84%EC%95%BD%20%EC%A1%B0%EA%B1%B4%2C%20%EC%9D%B8%EC%A6%9D%20%EC%84%9C%EB%A5%98%20%EB%93%B1%29%2C%20%EC%A7%80%EC%9B%90%ED%95%A0%20%EB%B9%84%EC%9A%A9%2C%20%EC%B1%85%EC%9E%84%EC%9E%90%EB%A5%BC%20%ED%95%98%EB%82%98%EC%94%A9%20%EB%AC%BC%EC%96%B4%EB%B3%B8%20%EB%92%A4%20%EC%A7%81%EC%9B%90%20%EA%B3%B5%EC%A7%80%EC%9A%A9%201%EC%AA%BD%EC%9C%BC%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t15" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EC%9D%98%EB%A3%8C%EC%9A%A9%ED%92%88%EC%9D%84%20%EB%A7%8C%EB%93%A4%EC%96%B4%20%EC%88%98%EC%B6%9C%ED%95%98%EB%8A%94%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20AI%20%EC%82%AC%EC%9A%A9%20%EC%9B%90%EC%B9%99%201%EC%AA%BD%EC%9D%84%20%EB%A7%8C%EB%93%A4%EB%A0%A4%EA%B3%A0%20%ED%95%A9%EB%8B%88%EB%8B%A4.%20%EA%B6%8C%EC%9E%A5%ED%95%A0%20%EC%97%85%EB%AC%B4%2C%20AI%EC%97%90%20%EB%84%A3%EC%A7%80%20%EC%95%8A%EC%9D%84%20%EC%A0%95%EB%B3%B4%28%EB%B0%94%EC%9D%B4%EC%96%B4%20%EB%8B%A8%EA%B0%80%2C%20%EA%B3%84%EC%95%BD%20%EC%A1%B0%EA%B1%B4%2C%20%EC%9D%B8%EC%A6%9D%20%EC%84%9C%EB%A5%98%20%EB%93%B1%29%2C%20%EC%A7%80%EC%9B%90%ED%95%A0%20%EB%B9%84%EC%9A%A9%2C%20%EC%B1%85%EC%9E%84%EC%9E%90%EB%A5%BC%20%ED%95%98%EB%82%98%EC%94%A9%20%EB%AC%BC%EC%96%B4%EB%B3%B8%20%EB%92%A4%20%EC%A7%81%EC%9B%90%20%EA%B3%B5%EC%A7%80%EC%9A%A9%201%EC%AA%BD%EC%9C%BC%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EA%B0%81%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%95%9C%20%EC%A4%84%EB%A1%9C%2C%20%EC%89%AC%EC%9A%B4%20%EB%A7%90%EB%A1%9C%20%EC%8D%A8%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t15" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t15" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
 </div><div class="item" data-co="svc">
   <p class="lab">두 분이 상의해서 답하기</p>
-  <p class="txt" id="t16">우리는 기업 고객에게 식사를 제공하는 회사입니다. AI 사용 원칙 1쪽을 만들려고 합니다. 권장할 업무, AI에 넣지 않을 정보(고객사 임직원 명단, 알레르기 정보, 공급 단가 등), 지원할 비용, 책임자를 하나씩 물어본 뒤 직원 공지용 1쪽으로 정리해 주세요.</p>
+  <p class="txt" id="t16">우리는 기업 고객에게 식사를 제공하는 회사입니다. AI 사용 원칙 1쪽을 만들려고 합니다. 권장할 업무, AI에 넣지 않을 정보(고객사 임직원 명단, 알레르기 정보, 공급 단가 등), 지원할 비용, 책임자를 하나씩 물어본 뒤 직원 공지용 1쪽으로 정리해 주세요. 각 항목은 한 줄로, 쉬운 말로 써 주세요.</p>
   <div class="btns">
     <button class="copy" data-t="t16" type="button">복사</button>
-    <a class="go" data-t="t16" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EA%B8%B0%EC%97%85%20%EA%B3%A0%EA%B0%9D%EC%97%90%EA%B2%8C%20%EC%8B%9D%EC%82%AC%EB%A5%BC%20%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20AI%20%EC%82%AC%EC%9A%A9%20%EC%9B%90%EC%B9%99%201%EC%AA%BD%EC%9D%84%20%EB%A7%8C%EB%93%A4%EB%A0%A4%EA%B3%A0%20%ED%95%A9%EB%8B%88%EB%8B%A4.%20%EA%B6%8C%EC%9E%A5%ED%95%A0%20%EC%97%85%EB%AC%B4%2C%20AI%EC%97%90%20%EB%84%A3%EC%A7%80%20%EC%95%8A%EC%9D%84%20%EC%A0%95%EB%B3%B4%28%EA%B3%A0%EA%B0%9D%EC%82%AC%20%EC%9E%84%EC%A7%81%EC%9B%90%20%EB%AA%85%EB%8B%A8%2C%20%EC%95%8C%EB%A0%88%EB%A5%B4%EA%B8%B0%20%EC%A0%95%EB%B3%B4%2C%20%EA%B3%B5%EA%B8%89%20%EB%8B%A8%EA%B0%80%20%EB%93%B1%29%2C%20%EC%A7%80%EC%9B%90%ED%95%A0%20%EB%B9%84%EC%9A%A9%2C%20%EC%B1%85%EC%9E%84%EC%9E%90%EB%A5%BC%20%ED%95%98%EB%82%98%EC%94%A9%20%EB%AC%BC%EC%96%B4%EB%B3%B8%20%EB%92%A4%20%EC%A7%81%EC%9B%90%20%EA%B3%B5%EC%A7%80%EC%9A%A9%201%EC%AA%BD%EC%9C%BC%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
+    <a class="go" data-t="t16" href="https://chatgpt.com/?q=%EC%9A%B0%EB%A6%AC%EB%8A%94%20%EA%B8%B0%EC%97%85%20%EA%B3%A0%EA%B0%9D%EC%97%90%EA%B2%8C%20%EC%8B%9D%EC%82%AC%EB%A5%BC%20%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94%20%ED%9A%8C%EC%82%AC%EC%9E%85%EB%8B%88%EB%8B%A4.%20AI%20%EC%82%AC%EC%9A%A9%20%EC%9B%90%EC%B9%99%201%EC%AA%BD%EC%9D%84%20%EB%A7%8C%EB%93%A4%EB%A0%A4%EA%B3%A0%20%ED%95%A9%EB%8B%88%EB%8B%A4.%20%EA%B6%8C%EC%9E%A5%ED%95%A0%20%EC%97%85%EB%AC%B4%2C%20AI%EC%97%90%20%EB%84%A3%EC%A7%80%20%EC%95%8A%EC%9D%84%20%EC%A0%95%EB%B3%B4%28%EA%B3%A0%EA%B0%9D%EC%82%AC%20%EC%9E%84%EC%A7%81%EC%9B%90%20%EB%AA%85%EB%8B%A8%2C%20%EC%95%8C%EB%A0%88%EB%A5%B4%EA%B8%B0%20%EC%A0%95%EB%B3%B4%2C%20%EA%B3%B5%EA%B8%89%20%EB%8B%A8%EA%B0%80%20%EB%93%B1%29%2C%20%EC%A7%80%EC%9B%90%ED%95%A0%20%EB%B9%84%EC%9A%A9%2C%20%EC%B1%85%EC%9E%84%EC%9E%90%EB%A5%BC%20%ED%95%98%EB%82%98%EC%94%A9%20%EB%AC%BC%EC%96%B4%EB%B3%B8%20%EB%92%A4%20%EC%A7%81%EC%9B%90%20%EA%B3%B5%EC%A7%80%EC%9A%A9%201%EC%AA%BD%EC%9C%BC%EB%A1%9C%20%EC%A0%95%EB%A6%AC%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%20%EA%B0%81%20%ED%95%AD%EB%AA%A9%EC%9D%80%20%ED%95%9C%20%EC%A4%84%EB%A1%9C%2C%20%EC%89%AC%EC%9A%B4%20%EB%A7%90%EB%A1%9C%20%EC%8D%A8%20%EC%A3%BC%EC%84%B8%EC%9A%94." data-app="chatgpt">ChatGPT</a>
     <a class="go" data-t="t16" href="https://gemini.google.com/app" data-app="gemini">Gemini</a>
     <a class="go" data-t="t16" href="https://claude.ai/new" data-app="claude">Claude</a>
   </div>
-</div></section>
+</div></section><section id="s6"><h2><span>도움말</span>막힐 때</h2>
+<div class="item help"><p class="lab">새 대화를 열고 싶을 때</p><p class="txt">AI 앱 화면 위쪽의 연필 모양이나 '새 채팅'을 누르세요. 앱마다 위치가 조금 다릅니다.</p></div>
+<div class="item help"><p class="lab">말로 입력하고 싶을 때</p><p class="txt">입력창 오른쪽의 마이크 모양을 누르고 말씀하세요. 다 말한 뒤 보내기를 누르면 됩니다.</p></div>
+<div class="item help"><p class="lab">붙여넣기가 안 될 때</p><p class="txt">입력창을 손가락으로 길게 누르면 '붙여넣기'가 나옵니다. 그래도 안 되면 이 페이지의 문장을 길게 눌러 직접 복사하세요.</p></div>
+<div class="item help"><p class="lab">아이폰에서</p><p class="txt">Claude는 버튼을 두 번 누르세요. Gemini는 버튼을 누른 뒤 홈 화면에서 Gemini 앱을 직접 여세요.</p></div>
+<div class="item help"><p class="lab">답이 너무 길 때</p><p class="txt">"한 줄씩, 더 짧게 다시 써 줘"라고 말로 시키세요.</p></div>
+</section>
 <p class="foot">이 페이지를 홈 화면에 추가해 두시면 교육 뒤에도 그대로 쓰실 수 있습니다.</p>
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -283,10 +291,11 @@ function setTab(t){document.body.setAttribute('data-tab',t);
   try{localStorage.setItem(TAB_KEY,t)}catch(e){}}
 document.querySelectorAll('.jump a').forEach(function(a){a.addEventListener('click',function(e){
   e.preventDefault();
-  if(!document.body.hasAttribute('data-co')){toast('먼저 아래에서 우리 회사 쪽을 눌러 주세요.');return}
+  var t=a.getAttribute('href').slice(1);
+  if(t!=='s6'&&!document.body.hasAttribute('data-co')){toast('먼저 아래에서 우리 회사 쪽을 눌러 주세요.');return}
   setTab(a.getAttribute('href').slice(1));window.scrollTo(0,0);
 })});
-(function(){var t='s1';try{var v=localStorage.getItem(TAB_KEY);if(/^s[1-5]$/.test(v))t=v}catch(e){}setTab(t)})();
+(function(){var t='s1';try{var v=localStorage.getItem(TAB_KEY);if(/^s[1-6]$/.test(v))t=v}catch(e){}setTab(t)})();
 </script>
 </body>
 </html>
